@@ -1,5 +1,0 @@
-{
-  "buildCommand": "cd humanoid-robotics-book && npm install && npm run build",
-  "outputDirectory": "humanoid-robotics-book/build",
-  "installCommand": "cd humanoid-robotics-book && npm install"
-}
