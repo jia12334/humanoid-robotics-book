@@ -14,6 +14,13 @@ const config = {
   tagline: 'A comprehensive guide to intelligent robotic systems',
   favicon: 'img/favicon.ico',
 
+  // Custom fields for the RAG chatbot
+  customFields: {
+    // API URL for the RAG chatbot backend
+    // Override this in production with your Railway/Render URL
+    apiUrl: process.env.REACT_APP_API_URL || 'http://localhost:8000',
+  },
+
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
