@@ -17,8 +17,9 @@ const config = {
   // Custom fields for the RAG chatbot
   customFields: {
     // API URL for the RAG chatbot backend
-    // Override this in production with your Railway/Render URL
-    apiUrl: process.env.REACT_APP_API_URL || 'http://localhost:8000',
+    // Empty string means same domain (Vercel deployment)
+    // For local dev, set REACT_APP_API_URL=http://localhost:8000
+    apiUrl: process.env.REACT_APP_API_URL || '',
   },
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future

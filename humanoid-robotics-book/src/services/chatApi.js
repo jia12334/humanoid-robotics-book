@@ -2,10 +2,12 @@
  * Chat API client for communicating with the RAG backend.
  */
 
-// API base URL - configure via environment or use default
+// API base URL - configure via environment or use same domain (empty string)
+// For Vercel deployment: empty string means /api/* on same domain
+// For local dev: set REACT_APP_API_URL=http://localhost:8000
 const API_BASE_URL = typeof window !== 'undefined'
-  ? (window.__DOCUSAURUS_SITE_CONFIG__?.customFields?.apiUrl || 'http://localhost:8000')
-  : 'http://localhost:8000';
+  ? (window.__DOCUSAURUS_SITE_CONFIG__?.customFields?.apiUrl ?? '')
+  : '';
 
 /**
  * Send a chat message to the RAG backend.

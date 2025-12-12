@@ -33,7 +33,7 @@ class Settings(BaseSettings):
 
     # Models
     embedding_model: str = "text-embedding-3-small"
-    chat_model: str = "gemini-1.5-flash"
+    chat_model: str = "gemini-2.5-flash"
 
     # RAG Configuration
     top_k_results: int = 5
