@@ -2,6 +2,7 @@
 
 from datetime import datetime
 from fastapi import APIRouter
+from sqlalchemy import text
 
 from app.models.schemas import HealthResponse
 from app.db.qdrant import check_qdrant_health
@@ -30,17 +31,17 @@ async def health_check() -> HealthResponse:
     # Check PostgreSQL
     try:
         async with engine.connect() as conn:
-            await conn.execute("SELECT 1")
+            await conn.execute(text("SELECT 1"))
         services["postgres"] = "connected"
     except Exception as e:
         services["postgres"] = f"error: {str(e)}"
 
-    # Check OpenAI (basic check - API key presence)
+    # Check Gemini (basic check - API key presence)
     from app.config import get_settings
 
     settings = get_settings()
-    services["openai"] = (
-        "configured" if settings.openai_api_key.startswith("sk-") else "not configured"
+    services["gemini"] = (
+        "configured" if settings.gemini_api_key and settings.gemini_api_key.startswith("AIza") else "not configured"
     )
 
     # Determine overall status
