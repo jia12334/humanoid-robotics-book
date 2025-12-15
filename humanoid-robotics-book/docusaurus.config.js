@@ -17,11 +17,11 @@ const config = {
   // Custom fields for the RAG chatbot
   customFields: {
     // API URL for the RAG chatbot backend
-    // In production (Vercel): empty string = same domain with /api proxy
+    // In production: point to Railway backend
     // In development: point to local backend
     apiUrl: process.env.NODE_ENV === 'development'
       ? 'http://localhost:8000'
-      : (process.env.REACT_APP_API_URL || ''),
+      : 'https://humanoid-robotics-book-production.up.railway.app',
   },
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
