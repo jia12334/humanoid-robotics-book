@@ -2,12 +2,10 @@
  * Chat API client for communicating with the RAG backend.
  */
 
-// API base URL - configure via environment or use same domain (empty string)
-// For Vercel deployment: empty string means /api/* on same domain
-// For local dev: automatically uses localhost:8000
-const API_BASE_URL = typeof window !== 'undefined'
-  ? (window.__DOCUSAURUS_SITE_CONFIG__?.customFields?.apiUrl || 'http://localhost:8000')
-  : 'http://localhost:8000';
+// API base URL - use localhost for development, Railway for production
+const API_BASE_URL = typeof window !== 'undefined' && window.location.hostname === 'localhost'
+  ? 'http://localhost:8000'
+  : 'https://humanoid-robotics-book-production.up.railway.app';
 
 // Debug logging
 if (typeof window !== 'undefined') {
