@@ -47,7 +47,7 @@ class RAGService:
         self.embedding_service = EmbeddingService()
         self.retrieval_service = RetrievalService()
         genai.configure(api_key=settings.gemini_api_key)
-        self.gemini_model = genai.GenerativeModel('gemini-1.5-flash')
+        self.gemini_model = genai.GenerativeModel('models/gemini-2.5-flash')
 
     async def answer_question(
         self,
